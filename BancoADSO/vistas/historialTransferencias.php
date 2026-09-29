@@ -9,11 +9,12 @@ $datosResumen = $resumen['resumen'] ?? [
 
 ?>
 
-<div class="historial-contenedor">
+<div class="contenedor">
 
     <h1>Historial de transferencias</h1>
 
     <section class="resumen">
+
         <h2>Resumen</h2>
 
         <p>
@@ -29,9 +30,10 @@ $datosResumen = $resumen['resumen'] ?? [
                 'UTF-8'
             ) ?>
         </p>
+
     </section>
 
-    <section class="lista-historial">
+    <section>
 
         <h2>Transferencias realizadas</h2>
 
@@ -41,7 +43,7 @@ $datosResumen = $resumen['resumen'] ?? [
 
         <?php else: ?>
 
-            <table>
+            <table class="tabla-historial">
 
                 <thead>
                     <tr>
@@ -57,6 +59,7 @@ $datosResumen = $resumen['resumen'] ?? [
                     <?php foreach ($transferencias as $transferencia): ?>
 
                         <tr>
+
                             <td>
                                 <?= $transferencia->getId() ?>
                             </td>
@@ -80,6 +83,7 @@ $datosResumen = $resumen['resumen'] ?? [
                                     'UTF-8'
                                 ) ?>
                             </td>
+
                         </tr>
 
                     <?php endforeach; ?>
@@ -92,8 +96,12 @@ $datosResumen = $resumen['resumen'] ?? [
 
     </section>
 
-    <a href="index.php?ruta=panel/index">
-        Volver al panel
-    </a>
+    <div class="acciones-secundarias">
+
+        <a href="index.php?ruta=panel/index">
+            Volver al panel
+        </a>
+
+    </div>
 
 </div>

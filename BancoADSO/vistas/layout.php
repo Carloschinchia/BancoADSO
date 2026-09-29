@@ -17,8 +17,8 @@
     </title>
 
     <link
-        rel="stylesheet"
-        href="estilos.css"
+    rel="stylesheet"
+    href="/css/estilo.css"
     >
 </head>
 

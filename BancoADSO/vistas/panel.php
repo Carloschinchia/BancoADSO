@@ -4,21 +4,26 @@ $saldo = $saldo ?? '0.00';
 $mensajeExito = $mensajeExito ?? null;
 ?>
 
-<div class="panel-contenedor">
+<div class="contenedor">
 
-    <header class="panel-cabecera">
+    <header class="barra">
         <div>
-            <h1>Banco ADSO</h1>
-            <p>Panel de tu cuenta</p>
+            <div class="marca">Banco ADSO</div>
+            <div>Panel de tu cuenta</div>
         </div>
 
-        <a href="index.php?ruta=login/salir">
-            Cerrar sesión
-        </a>
+        <nav class="navegacion">
+            <a
+                class="enlace-salir"
+                href="index.php?ruta=login/salir"
+            >
+                Cerrar sesión
+            </a>
+        </nav>
     </header>
 
     <?php if ($mensajeExito !== null): ?>
-        <div class="mensaje-exito">
+        <div class="mensaje mensaje-exito">
             <?= htmlspecialchars(
                 $mensajeExito,
                 ENT_QUOTES,
@@ -27,12 +32,17 @@ $mensajeExito = $mensajeExito ?? null;
         </div>
     <?php endif; ?>
 
-    <section class="cuenta">
-        <h2>Mi cuenta</h2>
+    <section class="tarjeta-saldo">
+
+        <h1>Mi cuenta</h1>
 
         <?php if ($cuenta !== null): ?>
-            <p>
-                <strong>Número de cuenta:</strong>
+
+            <p class="etiqueta">
+                Número de cuenta
+            </p>
+
+            <p class="numero-cuenta">
                 <?= htmlspecialchars(
                     $cuenta->getNumeroCuenta(),
                     ENT_QUOTES,
@@ -40,37 +50,62 @@ $mensajeExito = $mensajeExito ?? null;
                 ) ?>
             </p>
 
-            <p>
-                <strong>Saldo disponible:</strong>
+            <p class="etiqueta">
+                Saldo disponible
+            </p>
+
+            <p class="saldo">
                 $<?= htmlspecialchars(
                     $saldo,
                     ENT_QUOTES,
                     'UTF-8'
                 ) ?>
             </p>
+
         <?php else: ?>
+
             <p>No se encontró información de la cuenta.</p>
+
         <?php endif; ?>
+
     </section>
 
-    <section class="acciones">
-        <h2>Operaciones</h2>
+    <section>
 
-        <a href="index.php?ruta=retiro/formulario">
-            Realizar retiro
-        </a>
+        <h1>Operaciones</h1>
 
-        <a href="index.php?ruta=transferencia/formulario">
-            Realizar transferencia
-        </a>
+        <div class="accesos-rapidos">
 
-        <a href="index.php?ruta=retiro/historial">
-            Historial de retiros
-        </a>
+            <a
+                class="boton"
+                href="index.php?ruta=retiro/formulario"
+            >
+                Realizar retiro
+            </a>
 
-        <a href="index.php?ruta=transferencia/historial">
-            Historial de transferencias
-        </a>
+            <a
+                class="boton"
+                href="index.php?ruta=transferencia/formulario"
+            >
+                Realizar transferencia
+            </a>
+
+            <a
+                class="boton"
+                href="index.php?ruta=retiro/historial"
+            >
+                Historial de retiros
+            </a>
+
+            <a
+                class="boton"
+                href="index.php?ruta=transferencia/historial"
+            >
+                Historial de transferencias
+            </a>
+
+        </div>
+
     </section>
 
 </div>

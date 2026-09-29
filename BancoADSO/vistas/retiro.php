@@ -2,12 +2,12 @@
 $error = $error ?? null;
 ?>
 
-<div class="formulario-contenedor">
+<div class="contenedor">
 
     <h1>Realizar retiro</h1>
 
     <?php if ($error !== null): ?>
-        <div class="mensaje-error">
+        <div class="mensaje mensaje-error">
             <?= htmlspecialchars(
                 $error,
                 ENT_QUOTES,
@@ -17,36 +17,33 @@ $error = $error ?? null;
     <?php endif; ?>
 
     <form
+        class="formulario"
         method="POST"
         action="index.php?ruta=retiro/procesar"
     >
 
-        <div class="campo">
-            <label for="valor">
-                Valor del retiro
-            </label>
+        <label for="valor">
+            Valor del retiro
+        </label>
 
-            <input
-                type="text"
-                id="valor"
-                name="valor"
-                placeholder="Ejemplo: 50000.00"
-                required
-            >
-        </div>
+        <input
+            type="text"
+            id="valor"
+            name="valor"
+            placeholder="Ejemplo: 50000.00"
+            required
+        >
 
-        <div class="campo">
-            <label for="contrasena">
-                Contraseña
-            </label>
+        <label for="contrasena">
+            Contraseña
+        </label>
 
-            <input
-                type="password"
-                id="contrasena"
-                name="contrasena"
-                required
-            >
-        </div>
+        <input
+            type="password"
+            id="contrasena"
+            name="contrasena"
+            required
+        >
 
         <button type="submit">
             Realizar retiro
@@ -54,8 +51,10 @@ $error = $error ?? null;
 
     </form>
 
-    <a href="index.php?ruta=panel/index">
-        Volver al panel
-    </a>
+    <div class="acciones-secundarias">
+        <a href="index.php?ruta=panel/index">
+            Volver al panel
+        </a>
+    </div>
 
 </div>
